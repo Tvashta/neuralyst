@@ -125,9 +125,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function flipCard(card) {
-  card.classList.toggle("flipped");
+  card.closest('.task-inner').parentNode.classList.toggle("flipped");
 }
 
+
 function handletaskaction(action){
-    console.log(action)
+  console.log(action)
 }

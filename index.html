@@ -26,72 +26,447 @@
   <body>
     <div id="particle-js"></div>
     <div class="container">
-        <h1 class="t-cen">DESTRESS</h1>
-        <div class="task" onclick="flipCard(this)">
-            <div class="task-inner">
-                <div class="task-front">
-                    <h2 class="task-t t-cen">Sample 2 min task!</h2>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
-                        <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
-                      </svg>
-                      <div class="menu">
-                        <div class="action" id="yes" onclick="handletaskaction('Y')">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
-                                <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"/>
-                              </svg>
-                            <p>Yes</p>
-                        </div>
-                        <div class="action" id="no"  onclick="handletaskaction('N')">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
-                                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
-                              </svg>
-                            <p>No</p>
-                        </div>
-                        <div class="action" id="done"  onclick="handletaskaction('D')">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
-                                <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486z"/>
-                              </svg>
-                            <p>Done</p>
-                        </div>
-                      </div>
-                </div>
-                <div class="task-back">
-                    <h2 class="task-t t-cen">Task type</h2>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
-                        <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
-                      </svg>
-                </div>
-                
-            </div>
+      <h1 class="t-cen">NEURALYST</h1>
+      <a id="logout">Logout</a>
+
+      <div class="addtasks">
+        <div class="t" id="voicerecord">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            fill="currentColor"
+            class="bi bi-mic-fill"
+            viewBox="0 0 16 16"
+          >
+            <path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0z" />
+            <path
+              d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5"
+            />
+          </svg>
         </div>
-        
-        <div class="b-nav">
+        <div class="t">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            fill="currentColor"
+            class="bi bi-calendar-plus-fill"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2M8.5 8.5V10H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V11H6a.5.5 0 0 1 0-1h1.5V8.5a.5.5 0 0 1 1 0"
+            />
+          </svg>
+        </div>
+      </div>
+
+      <div class="task">
+        <div class="task-inner">
+          <div class="task-front">
+            <h2 class="task-t t-cen" id="now-task">Sample 2 min task!</h2>
+            <svg
+              onclick="flipCard(this)"
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              fill="white"
+              class="bi bi-caret-right-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"
+              />
+            </svg>
             <div class="menu">
-                <a
-                  href="index.html"
-                  >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-heart-fill" viewBox="0 0 16 16">
-                    <path d="M7.293 1.5a1 1 0 0 1 1.414 0L11 3.793V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v3.293l2.354 2.353a.5.5 0 0 1-.708.707L8 2.207 1.354 8.853a.5.5 0 1 1-.708-.707z"/>
-                    <path d="m14 9.293-6-6-6 6V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5zm-6-.811c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.691 0-5.018"/>
-                  </svg>
-                  </a>
-                <a
-                  href="roadmap.html"
+              <div class="action" id="yes">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-check"
+                  viewBox="0 0 16 16"
                 >
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bezier2" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M1 2.5A1.5 1.5 0 0 1 2.5 1h1A1.5 1.5 0 0 1 5 2.5h4.134a1 1 0 1 1 0 1h-2.01q.269.27.484.605C8.246 5.097 8.5 6.459 8.5 8c0 1.993.257 3.092.713 3.7.356.476.895.721 1.787.784A1.5 1.5 0 0 1 12.5 11h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5H6.866a1 1 0 1 1 0-1h1.711a3 3 0 0 1-.165-.2C7.743 11.407 7.5 10.007 7.5 8c0-1.46-.246-2.597-.733-3.355-.39-.605-.952-1-1.767-1.112A1.5 1.5 0 0 1 3.5 5h-1A1.5 1.5 0 0 1 1 3.5zM2.5 2a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm10 10a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z"/>
-                  </svg>
-                </a>
-                <a href="milestones.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trophy-fill" viewBox="0 0 16 16">
-                    <path d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5q0 .807-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33 33 0 0 1 2.5.5m.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935m10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935"/>
-                  </svg></a>
+                  <path
+                    d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"
+                  />
+                </svg>
+                <p>Yes</p>
               </div>
+              <div class="action" id="no">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-x"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"
+                  />
+                </svg>
+                <p>No</p>
+              </div>
+              <div class="action" id="done">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-check-all"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486z"
+                  />
+                </svg>
+                <p>Done</p>
+              </div>
+              <div class="action" id="edit">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-pencil-square"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"
+                  />
+                </svg>
+                <p>Edit</p>
+              </div>
+              <div class="action" id="save">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-check"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"
+                  />
+                </svg>
+                <p>Save</p>
+              </div>
+              <div class="action" id="discard">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-x"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"
+                  />
+                </svg>
+                <p>Discard</p>
+              </div>
+            </div>
+          </div>
+          <div class="task-back">
+            <h2 class="task-t t-cen" id="task-type">Task type</h2>
+            <svg
+              onclick="flipCard(this)"
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              fill="white"
+              class="bi bi-caret-right-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"
+              />
+            </svg>
+          </div>
         </div>
+      </div>
+
+      <div class="b-nav">
+        <div class="menu">
+          <a href="index.html">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-house-heart-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M7.293 1.5a1 1 0 0 1 1.414 0L11 3.793V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v3.293l2.354 2.353a.5.5 0 0 1-.708.707L8 2.207 1.354 8.853a.5.5 0 1 1-.708-.707z"
+              />
+              <path
+                d="m14 9.293-6-6-6 6V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5zm-6-.811c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.691 0-5.018"
+              />
+            </svg>
+          </a>
+          <a href="roadmap.html">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-bezier2"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1 2.5A1.5 1.5 0 0 1 2.5 1h1A1.5 1.5 0 0 1 5 2.5h4.134a1 1 0 1 1 0 1h-2.01q.269.27.484.605C8.246 5.097 8.5 6.459 8.5 8c0 1.993.257 3.092.713 3.7.356.476.895.721 1.787.784A1.5 1.5 0 0 1 12.5 11h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5H6.866a1 1 0 1 1 0-1h1.711a3 3 0 0 1-.165-.2C7.743 11.407 7.5 10.007 7.5 8c0-1.46-.246-2.597-.733-3.355-.39-.605-.952-1-1.767-1.112A1.5 1.5 0 0 1 3.5 5h-1A1.5 1.5 0 0 1 1 3.5zM2.5 2a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm10 10a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z"
+              />
+            </svg>
+          </a>
+          <a href="milestones.html">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-trophy-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5q0 .807-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33 33 0 0 1 2.5.5m.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935m10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
     </div>
     <div id="page-transition"></div>
 
+    <!-- External JS scripts -->
     <script src="js/parallel-plugin@0.4.0.js"></script>
     <script src="js/particles.min.js"></script>
     <script src="js/index.js"></script>
+
+    <!-- Main Script -->
+    <script type="module">
+      /***************************************
+       * Firebase and Other Initialization
+       ***************************************/
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-analytics.js";
+      import { getAuth } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-auth.js";
+      import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyBAnXopONMI9EV-7BRiG9IdquHAjKbSnw0",
+        authDomain: "devfest-f30c4.firebaseapp.com",
+        projectId: "devfest-f30c4",
+        storageBucket: "devfest-f30c4.firebasestorage.app",
+        messagingSenderId: "29731411675",
+        appId: "1:29731411675:web:487f41db0417c38e845efe",
+        measurementId: "G-RNY2CBXLW1",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      const auth = getAuth();
+      const db = getFirestore();
+
+      document.getElementById("logout").addEventListener("click", () => {
+        auth
+          .signOut()
+          .then(() => {
+            window.location.href = "login.html";
+          })
+          .catch((error) => {
+            console.error("Error logging out:", error);
+          });
+      });
+
+      let priorityTask = "Priority task example";
+
+      /*********************************************
+       * Voice Recording and Transcription Handling
+       *********************************************/
+      // Define SVG icons for microphone and stop
+      const micIcon = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-mic-fill" viewBox="0 0 16 16">
+          <path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0z"/>
+          <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5"/>
+        </svg>
+      `;
+
+      const stopIcon = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-stop-fill" viewBox="0 0 16 16">
+          <rect x="3" y="3" width="10" height="10" rx="2" ry="2"/>
+        </svg>
+      `;
+
+      let isRecording = false;
+      let mediaRecorder;
+      let recordedChunks = [];
+      let task = {
+        desc:"",
+        twomin:"",
+        priority:"",
+        deadline:"",
+        assignedDateTime:"",
+        coordinates:"",
+        session:"",
+      }
+
+      // Flask API endpoint
+      const FLASK_API_ENDPOINT = "http://127.0.0.1:5001";
+
+      // Element references
+      const voiceRecordBtn = document.getElementById("voicerecord");
+      const taskTextEl = document.querySelector(".task .task-t");
+      const yesAction = document.getElementById("yes");
+      const noAction = document.getElementById("no");
+      const doneAction = document.getElementById("done");
+      const editAction = document.getElementById("edit");
+      const saveAction = document.getElementById("save");
+      const discardAction = document.getElementById("discard");
+
+      // Toggle voice recording on click
+      voiceRecordBtn.addEventListener("click", async () => {
+        if (!isRecording) {
+          try {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            recordedChunks = [];
+            mediaRecorder = new MediaRecorder(stream, { mimeType: "audio/webm" });
+
+            mediaRecorder.addEventListener("dataavailable", (event) => {
+              if (event.data.size > 0) recordedChunks.push(event.data);
+            });
+
+            mediaRecorder.addEventListener("stop", async () => {
+              const audioBlob = new Blob(recordedChunks, { type: "audio/webm" });
+              taskTextEl.textContent = "Loading transcription...";
+              taskTextEl.setAttribute("contenteditable", "false");
+
+              const formData = new FormData();
+              formData.append("audio", audioBlob, "recording.m4a");
+
+              try {
+                const response = await fetch(`${FLASK_API_ENDPOINT}/transcribe`, {
+                  method: "POST",
+                  body: formData,
+                });
+
+                if (!response.ok) {
+                  throw new Error(`Server error: ${response.statusText}`);
+                }
+
+                const result = await response.json();
+                if (result.error) {
+                  taskTextEl.textContent = "Error: " + result.error;
+                } else {
+                  taskTextEl.textContent = result.transcription;
+                  taskTextEl.setAttribute("contenteditable", "true");
+                  editV2Text(); // Update UI actions to show Edit/Discard
+                }
+              } catch (error) {
+                console.error("Error during transcription:", error);
+                taskTextEl.textContent =
+                  "Error converting voice to text. Please try again.";
+              }
+            });
+
+            mediaRecorder.start();
+            isRecording = true;
+            voiceRecordBtn.innerHTML = stopIcon;
+          } catch (error) {
+            console.error("Error accessing microphone:", error);
+          }
+        } else {
+          mediaRecorder.stop();
+          isRecording = false;
+          voiceRecordBtn.innerHTML = micIcon;
+        }
+      });
+
+      // Save and discard event listeners
+      saveAction.addEventListener("click", saveChanges);
+      discardAction.addEventListener("click", discardChanges);
+
+      // Edit mode: shows editing UI and makes the task text editable
+      function editV2Text() {
+        doneAction.style.display = "none";
+        editAction.style.display = "block";
+        saveAction.style.display = "block";
+        discardAction.style.display = "block";
+        yesAction.style.display = "none";
+        noAction.style.display = "none";
+
+        editAction.addEventListener("click", () => {
+          editAction.style.display = "none";
+          taskTextEl.setAttribute("contenteditable", "true");
+          taskTextEl.focus();
+          taskTextEl.style.border = "1px solid #ccc"; // Editable text style
+        });
+      }
+
+      // Revert changes
+      function discardChanges() {
+        taskTextEl.textContent = priorityTask;
+        taskTextEl.setAttribute("contenteditable", "false");
+        taskTextEl.style.border = "none";
+        saveAction.style.display = "none";
+        discardAction.style.display = "none";
+        editAction.style.display = "none";
+        yesAction.style.display = "block";
+        noAction.style.display = "block";
+        doneAction.style.display = "block";
+      }
+
+      // Save changes and extract info via Flask endpoint
+      function saveChanges() {
+        task.desc = taskTextEl.textContent;
+        taskTextEl.textContent = "Extracting location and making subtasks..."
+        console.log(taskTextEl.textContent);
+        fetch(`${FLASK_API_ENDPOINT}/extract_info_and_coordinates`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ sentence: task.desc}),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+
+            console.log("Extracted Data:", data);
+            task.coordinates = data.Coordinates;
+            task.location = data.Location;
+            //TODO: ADD Datetime!
+           
+            taskTextEl.textContent = "Prioritizing and making subtasks..."
+            //TODO: Prioritize and make 2 min version of task!
+            addDoc(collection(db, "tasks"), task)
+            .then((docRef) => {
+                console.log("Document added with ID:", docRef.id);
+                taskTextEl.textContent = priorityTask;
+                taskTextEl.setAttribute("contenteditable", "false");
+            taskTextEl.style.border = "none";
+            saveAction.style.display = "none";
+            discardAction.style.display = "none";
+            editAction.style.display = "none";
+            yesAction.style.display = "block";
+            noAction.style.display = "block";
+            doneAction.style.display = "block";
+            })
+            .catch((error) => {
+                console.error("Error adding document:", error);
+            });
+           
+          })
+          .catch((error) => console.error("Error extracting info:", error));
+      }
+    </script>
   </body>
-  </html>
+</html>
