@@ -127,3 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function flipCard(card) {
   card.classList.toggle("flipped");
 }
+
+function handletaskaction(action){
+    console.log(action)
+}
