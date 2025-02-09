@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Devfest</title>
+    <title>Milestones</title>
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
@@ -26,26 +26,13 @@
   <body>
     <div id="particle-js"></div>
     <div class="container">
-        <h1 class="t-cen">DESTRESS</h1>
-        <div class="task" onclick="flipCard(this)">
-            <div class="task-inner">
-                <div class="task-front">
-                    <h2 class="task-t t-cen">Sample 2 min task!</h2>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
-                        <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
-                      </svg>
-                </div>
-                <div class="task-back">
-                    <h2 class="task-t t-cen">Task type</h2>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
-                        <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
-                      </svg>
-                </div>
-                
-            </div>
+        <h1>Milestones</h1>
+        <div class="calendar-container">
+          <div class="month-name" id="month-name"></div>
+          <div class="calendar" id="calendar"></div>
         </div>
-        
-        <div class="b-nav">
+        <div class="summary" id="summary"></div>
+     <div class="b-nav">
             <div class="menu">
                 <a
                   href="index.html"
@@ -69,7 +56,62 @@
         </div>
     </div>
     <div id="page-transition"></div>
-
+  
+    <script>
+        // TO REMOVE
+        function generateTaskData(days) {
+          const data = {};
+          for (let i = 1; i <= days; i++) {
+            data[i] = Math.floor(Math.random() * 10);
+          }
+          return data;
+        }
+        function getFillColor(tasks) {
+          const maxTasks = 10; 
+          const intensity = tasks / maxTasks;
+          // Map intensity to lightness from 0% (darker) to 50% (brighter)
+          const lightness = intensity * 50;
+          return `hsl(120, 70%, ${lightness}%)`;
+        }
+        
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = today.getMonth(); // 0-indexed: January = 0
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        const currentDay = today.getDate();
+        
+        const monthNames = [
+          "January", "February", "March", "April", "May", "June",
+          "July", "August", "September", "October", "November", "December"
+        ];
+        document.getElementById("month-name").textContent = monthNames[month];
+        
+        // TODO get task data from db
+        const taskData = generateTaskData(daysInMonth);
+    
+        const calendarEl = document.getElementById("calendar");
+        for (let day = 1; day <= daysInMonth; day++) {
+          const dayEl = document.createElement("div");
+          dayEl.className = "day";
+          dayEl.textContent = day;
+          let tasks = taskData[day] || 0;
+          if(day>currentDay){
+            tasks = 0;
+          }
+          dayEl.style.backgroundColor = getFillColor(tasks);
+          dayEl.title = `${tasks} tasks completed`;
+          
+          if (day === currentDay) {
+            dayEl.id = "currentDay";
+          }
+          
+          calendarEl.appendChild(dayEl);
+        }
+        
+        const summaryEl = document.getElementById("summary");
+        const tasksToday = taskData[currentDay] || 0;
+        summaryEl.innerHTML = `<h2>Yay!</h2> <h2>You did <strong>${tasksToday}</strong> tasks today!</h2><h3>You got this! Keep going...</h3>`;
+      </script>
     <script src="js/parallel-plugin@0.4.0.js"></script>
     <script src="js/particles.min.js"></script>
     <script src="js/index.js"></script>
